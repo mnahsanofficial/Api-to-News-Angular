@@ -1,0 +1,15 @@
+<div *ngIf="newsData">
+    <h2>Latest News</h2>
+    <ul>
+      <li *ngFor="let article of newsData.articles">
+        <h3>{{ article.title }}</h3>
+        <img [src]="article.urlToImage" alt="Article Image" />
+        <p>{{ article.description }}</p>
+        <em>Date:{{article.publishedAt}}</em> <br>
+        <!-- <a [href]="article.url" target="_blank">Read more</a> -->
+        <!-- <a [routerLink]="['/news', article.id]">Read more</a> -->
+        <a *ngIf="article.url" [routerLink]="['/news', article.id]">Read more</a>
+      </li>
+    </ul>
+  </div>
+  
